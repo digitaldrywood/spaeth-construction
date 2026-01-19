@@ -1,0 +1,17 @@
+package pages
+
+import (
+	"spaeth-construction/internal/meta"
+	"spaeth-construction/templates/components"
+	"spaeth-construction/templates/layouts"
+)
+
+templ Contact(showSuccess bool, errorMsg string) {
+	@layouts.Base(meta.New(
+		"Contact Us",
+		"Get in touch with Cloverbelt Construction for a free estimate. Located in Cadott, WI serving the Chippewa Valley. Call (715) 289-4098.",
+	)) {
+		@PageHeader("Contact Us", "Let's Build", "Together", "Ready to start your project? Contact us for a free consultation and estimate.", "/images/gallery/team-planning.jpg")
+		@components.ContactSection(showSuccess, errorMsg)
+	}
+}

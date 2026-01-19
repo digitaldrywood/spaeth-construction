@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Green - Cloverbelt Brand */
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+
+  /* Grey Scale - Light Theme */
+  --color-grey-50: #fafafa;
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #e5e5e5;
+  --color-grey-300: #d4d4d4;
+  --color-grey-400: #a3a3a3;
+  --color-grey-500: #737373;
+  --color-grey-600: #525252;
+  --color-grey-700: #404040;
+  --color-grey-800: #262626;
+  --color-grey-900: #171717;
+
+  /* Font Families */
+  --font-family-poppins: "Poppins", system-ui, sans-serif;
+  --font-family-inter: "Inter", system-ui, sans-serif;
+  --font-family-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: var(--font-family-inter);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+/* Text Selection */
+::selection {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.font-poppins {
+  font-family: var(--font-family-poppins);
+  letter-spacing: -0.02em;
+}
+
+.font-inter {
+  font-family: var(--font-family-inter);
+}
+
+.font-mono {
+  font-family: var(--font-family-mono);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #16a34a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== ARCHITECTURAL PATTERNS ===== */
+
+/* Blueprint Grid Background */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(22, 163, 74, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 163, 74, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Fine Technical Grid */
+.technical-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Construction Grid */
+.construction-grid {
+  background-image:
+    linear-gradient(rgba(22, 163, 74, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 163, 74, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Diagonal Construction Stripes */
+.construction-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(22, 163, 74, 0.08) 10px,
+    rgba(22, 163, 74, 0.08) 20px
+  );
+}
+
+/* ===== BUTTONS ===== */
+
+/* Primary Button - Green */
+.btn-primary {
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #22c55e 0%, #4ade80 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px rgba(34, 197, 94, 0.5);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #16a34a;
+  color: #16a34a;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+/* ===== CARDS ===== */
+
+/* Construction Card */
+.card-construction {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card-construction:hover {
+  border-color: #16a34a;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Card */
+.card-service {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.card-service::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.card-service:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
+
+/* Horizontal Rule */
+.hr-construction {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e5e5e5 20%, #e5e5e5 80%, transparent 100%);
+  border: none;
+}
+
+/* Accent Line */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Stagger Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ===== FORM STYLES ===== */
+
+.input-construction {
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  color: #171717;
+  transition: all 0.3s ease;
+}
+
+.input-construction::placeholder {
+  color: #a3a3a3;
+}
+
+.input-construction:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+/* ===== IMAGE HOVER EFFECTS ===== */
+
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+
+@media (max-width: 768px) {
+  .blueprint-grid {
+    background-size: 30px 30px;
+  }
+
+  .construction-grid {
+    background-size: 25px 25px;
+  }
+}

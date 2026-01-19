@@ -1,0 +1,42 @@
+package pages
+
+import (
+	"spaeth-construction/internal/meta"
+	"spaeth-construction/templates/components"
+	"spaeth-construction/templates/layouts"
+)
+
+templ Projects() {
+	@layouts.Base(meta.New(
+		"Our Projects",
+		"Browse our portfolio of completed construction projects including commercial buildings, agricultural facilities, residential homes, concrete work, and excavation throughout Wisconsin.",
+	)) {
+		@PageHeader("Our Portfolio", "Featured", "Projects", "A showcase of our craftsmanship across residential, commercial, and agricultural construction.", "/images/gallery/construction-site-1.jpg")
+		@components.Projects()
+		@components.PhotoGallery()
+		@ProjectsCTA()
+	}
+}
+
+templ ProjectsCTA() {
+	<section class="relative py-16 lg:py-24 bg-green-600 overflow-hidden">
+		<div class="absolute inset-0 construction-stripes opacity-20"></div>
+		<div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="font-poppins text-2xl lg:text-4xl font-bold text-white mb-6">
+				Let's Create Your Next Success Story
+			</h2>
+			<p class="text-white/90 mb-8 max-w-2xl mx-auto text-lg">
+				Your project could be featured here next. Contact us to discuss your construction needs.
+			</p>
+			<a
+				href="/contact"
+				class="inline-flex items-center gap-2 px-8 py-4 lg:px-10 lg:py-5 bg-white text-green-700 text-base lg:text-lg font-bold hover:bg-green-50 transition-colors shadow-xl rounded group"
+			>
+				Start Your Project
+				<svg class="w-5 h-5 lg:w-6 lg:h-6 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+				</svg>
+			</a>
+		</div>
+	</section>
+}

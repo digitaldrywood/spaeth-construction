@@ -1,0 +1,111 @@
+package pages
+
+import (
+	"spaeth-construction/internal/meta"
+	"spaeth-construction/templates/components"
+	"spaeth-construction/templates/layouts"
+)
+
+templ Home() {
+	@layouts.Base(meta.New(
+		"Premier Construction Services in Cadott, WI",
+		"Licensed, bonded, and insured construction company serving Wisconsin since 2001. Specializing in residential, commercial, and agricultural construction, concrete work, and excavation. A+ BBB rated.",
+	).WithKeywords(
+		"construction company Cadott WI",
+		"Wisconsin construction services",
+		"concrete work Wisconsin",
+		"agricultural construction",
+		"commercial construction",
+		"residential construction",
+		"excavation services",
+		"Cloverbelt Construction",
+		"Chippewa Valley construction",
+	)) {
+		@components.Hero()
+		// Why Choose Us Section
+		@WhyChooseUs()
+		// Services Overview
+		@components.Services()
+		// Photo Gallery
+		@components.PhotoGallery()
+		// Project Portfolio
+		@components.Projects()
+		// About Section
+		@components.About()
+		// Contact Section
+		@components.ContactSection(false, "")
+	}
+}
+
+templ WhyChooseUs() {
+	<section class="relative py-20 lg:py-28 bg-gray-50 overflow-hidden">
+		<div class="absolute inset-0 construction-grid opacity-30"></div>
+		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+				// Image Side
+				<div class="relative">
+					<div class="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
+						<img
+							src="/images/gallery/workers-site.jpg"
+							alt="Quality construction work"
+							class="w-full h-full object-cover"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-r from-green-600/20 to-transparent"></div>
+					</div>
+					// Floating Stats Card
+					<div class="absolute -bottom-6 -right-6 lg:right-8 bg-green-600 p-6 shadow-2xl rounded">
+						<div class="text-4xl font-bold text-white mb-1">20+</div>
+						<div class="text-green-100 text-sm uppercase tracking-wider">Years of Excellence</div>
+					</div>
+				</div>
+				// Content Side
+				<div>
+					<div class="flex items-center gap-3 mb-4">
+						<div class="w-12 h-[3px] bg-gradient-to-r from-green-600 to-green-500"></div>
+						<span class="text-green-600 text-sm font-semibold uppercase tracking-wider">
+							Why Choose Us
+						</span>
+					</div>
+					<h2 class="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+						Built on Trust,
+						<span class="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-500">
+							Delivered with Quality
+						</span>
+					</h2>
+					<p class="text-gray-600 text-lg mb-8 leading-relaxed">
+						Since 2001, Cloverbelt Construction has been building Wisconsin's future one project at a time. Our commitment to quality craftsmanship and customer satisfaction has made us the trusted choice for residential, commercial, and agricultural construction.
+					</p>
+					// Feature List
+					<div class="grid sm:grid-cols-2 gap-4 mb-8">
+						@featureItem("Licensed & Insured")
+						@featureItem("A+ BBB Rating")
+						@featureItem("Free Estimates")
+						@featureItem("Quality Materials")
+						@featureItem("Experienced Team")
+						@featureItem("On-Time Delivery")
+					</div>
+					<a
+						href="/about"
+						class="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors group"
+					>
+						Learn More About Us
+						<svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+templ featureItem(text string) {
+	<div class="flex items-center gap-3 group">
+		<div class="w-6 h-6 flex items-center justify-center bg-green-100 border border-green-200 text-green-600 rounded">
+			<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+				<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+			</svg>
+		</div>
+		<span class="text-gray-700 group-hover:text-gray-900 transition-colors">{ text }</span>
+	</div>
+}

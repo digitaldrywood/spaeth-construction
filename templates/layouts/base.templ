@@ -1,0 +1,29 @@
+package layouts
+
+import "spaeth-construction/internal/meta"
+
+templ Base(m meta.PageMeta) {
+	<!DOCTYPE html>
+	<html lang="en" class="scroll-smooth">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			@MetaTags(m)
+			<meta name="theme-color" content="#16a34a"/>
+			<link rel="icon" href="/favicon.ico" sizes="any"/>
+			<link rel="stylesheet" href="/static/css/output.css"/>
+			<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+			// Google Fonts - Inter, Poppins, JetBrains Mono
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+		</head>
+		<body class="font-sans antialiased bg-white text-gray-900">
+			@Header()
+			<main>
+				{ children... }
+			</main>
+			@Footer()
+		</body>
+	</html>
+}

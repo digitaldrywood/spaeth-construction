@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Go
+spaeth-construction
+*.exe
+tmp/
+*.log
+
+# Generated files (can be regenerated)
+*_templ.go
+
+# Environment (never commit secrets)
+.envrc
+
+# Tailwind output (generated)
+static/css/output.css
+
+# IDE
+.idea/
+.vscode/
+*.swp

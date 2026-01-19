@@ -1,0 +1,189 @@
+package components
+
+type HeroSlide struct {
+	Image     string
+	Title     string
+	Highlight string
+	Subtitle  string
+}
+
+var heroSlides = []HeroSlide{
+	{
+		Image:     "/images/gallery/construction-site-1.jpg",
+		Title:     "Building",
+		Highlight: "Wisconsin's Future",
+		Subtitle:  "Premier construction services for residential, commercial, and agricultural projects throughout the Chippewa Valley.",
+	},
+	{
+		Image:     "/images/gallery/excavator-work.jpg",
+		Title:     "Quality",
+		Highlight: "Craftsmanship",
+		Subtitle:  "Over 20 years of experience delivering excellence in every project we undertake.",
+	},
+	{
+		Image:     "/images/gallery/crane-work.jpg",
+		Title:     "Your Vision",
+		Highlight: "Our Expertise",
+		Subtitle:  "From concept to completion, we bring your construction dreams to life.",
+	},
+	{
+		Image:     "/images/gallery/concrete-pour-1.jpg",
+		Title:     "Expert",
+		Highlight: "Concrete Work",
+		Subtitle:  "Professional concrete services for foundations, driveways, patios and decorative flatwork.",
+	},
+	{
+		Image:     "/images/gallery/barn-construction.jpg",
+		Title:     "Agricultural",
+		Highlight: "Construction",
+		Subtitle:  "Specialized barn and farm building construction built for Wisconsin conditions.",
+	},
+	{
+		Image:     "/images/gallery/commercial-building.jpg",
+		Title:     "Commercial",
+		Highlight: "Excellence",
+		Subtitle:  "Full-scale commercial construction for businesses that demand quality.",
+	},
+}
+
+templ Hero() {
+	<section class="relative min-h-screen flex items-center overflow-hidden" x-data="heroCarousel()">
+		// Background Slides
+		for i, slide := range heroSlides {
+			<div
+				class="absolute inset-0 transition-opacity duration-1000"
+				:class={ slideVisibilityClass(i) }
+			>
+				<img
+					src={ slide.Image }
+					alt={ "Construction project " + string(rune('1'+i)) }
+					class="w-full h-full object-cover"
+					if i == 0 {
+						loading="eager"
+					} else {
+						loading="lazy"
+					}
+				/>
+			</div>
+		}
+		// Overlay
+		<div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/80 to-gray-900/60"></div>
+		<div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-gray-900/40"></div>
+		// Content
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40 w-full">
+			<div class="max-w-3xl">
+				// Badge
+				<div class="inline-flex items-center gap-3 mb-8">
+					<div class="w-12 h-[3px] bg-gradient-to-r from-green-600 to-green-400"></div>
+					<span class="text-green-400 text-sm font-semibold tracking-wider uppercase">
+						Serving Wisconsin Since 2001
+					</span>
+				</div>
+				// Main Heading - shows content based on current slide
+				for i, slide := range heroSlides {
+					<div x-show={ slideShowCondition(i) } x-cloak>
+						<h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-[1.1]">
+							{ slide.Title }
+							<span class="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-500 to-emerald-400">
+								{ slide.Highlight }
+							</span>
+						</h1>
+						<p class="text-lg lg:text-xl text-white/80 max-w-xl mb-10 leading-relaxed">
+							{ slide.Subtitle }
+						</p>
+					</div>
+				}
+				// CTA Buttons
+				<div class="flex flex-col sm:flex-row gap-4 lg:gap-6 mb-16">
+					<a
+						href="/contact"
+						class="inline-flex items-center justify-center gap-2 px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 bg-green-600 text-white text-base lg:text-lg font-semibold hover:bg-green-500 transition-all duration-300 group shadow-lg shadow-green-600/25 rounded"
+					>
+						Get Free Estimate
+						<svg class="w-5 h-5 lg:w-6 lg:h-6 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
+					</a>
+					<a
+						href="/projects"
+						class="inline-flex items-center justify-center gap-2 px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-base lg:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 rounded"
+					>
+						View Our Work
+					</a>
+				</div>
+				// Stats Bar
+				<div class="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-10 xl:gap-14 pt-8 border-t border-white/20">
+					@heroStat("20+", "Years Experience")
+					@heroStat("500+", "Projects Completed")
+					@heroStat("A+", "BBB Rating")
+					@heroStat("100%", "Client Satisfaction")
+				</div>
+			</div>
+		</div>
+		// Slide Indicators
+		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
+			for i := range heroSlides {
+				<button
+					@click={ setSlide(i) }
+					class="transition-all duration-300 rounded-full"
+					:class={ indicatorClass(i) }
+					aria-label={ "Go to slide " + string(rune('1'+i)) }
+				></button>
+			}
+		</div>
+	</section>
+	// Alpine.js component for carousel
+	<script>
+		function heroCarousel() {
+			return {
+				currentSlide: 0,
+				totalSlides: 6,
+				interval: null,
+				init() {
+					this.startAutoplay();
+				},
+				startAutoplay() {
+					this.interval = setInterval(() => {
+						this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+					}, 5000);
+				},
+				goToSlide(index) {
+					this.currentSlide = index;
+					clearInterval(this.interval);
+					this.startAutoplay();
+				}
+			}
+		}
+	</script>
+}
+
+templ heroStat(value, label string) {
+	<div class="group">
+		<div class="font-poppins text-2xl lg:text-3xl xl:text-4xl font-bold text-white group-hover:text-green-400 transition-colors duration-300">
+			{ value }
+		</div>
+		<div class="text-xs lg:text-sm xl:text-base text-white/60 uppercase tracking-wider mt-1">
+			{ label }
+		</div>
+	</div>
+}
+
+func slideVisibilityClass(index int) string {
+	return "{ 'opacity-100': currentSlide === " + itoa(index) + ", 'opacity-0': currentSlide !== " + itoa(index) + " }"
+}
+
+func slideShowCondition(index int) string {
+	return "currentSlide === " + itoa(index)
+}
+
+func setSlide(index int) string {
+	return "goToSlide(" + itoa(index) + ")"
+}
+
+func indicatorClass(index int) string {
+	return "currentSlide === " + itoa(index) + " ? 'w-10 h-2 bg-green-500' : 'w-2 h-2 bg-white/40 hover:bg-white/60'"
+}
+
+func itoa(i int) string {
+	return string(rune('0' + i))
+}
