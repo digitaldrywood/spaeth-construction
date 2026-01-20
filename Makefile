@@ -25,10 +25,10 @@ generate:
 	go generate ./...
 
 css:
-	npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify
+	npx @tailwindcss/cli -i public/static/css/input.css -o public/static/css/output.css --minify
 
 css-watch:
-	npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --watch
+	npx @tailwindcss/cli -i public/static/css/input.css -o public/static/css/output.css --watch
 
 setup:
 	go install github.com/air-verse/air@latest
@@ -38,7 +38,7 @@ setup:
 clean:
 	rm -f $(BINARY_NAME)
 	rm -rf tmp/
-	rm -f static/css/output.css
+	rm -f public/static/css/output.css
 
 run: build
 	./$(BINARY_NAME)

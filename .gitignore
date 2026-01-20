@@ -53,7 +53,7 @@ tmp/
 .envrc
 
 # Tailwind output (generated)
-static/css/output.css
+public/static/css/output.css
 
 # IDE
 .idea/

@@ -141,7 +141,7 @@ Client-side state is managed with Alpine.js:
 
 ### Tailwind Custom Utilities
 
-Custom CSS classes defined in `static/css/input.css`:
+Custom CSS classes defined in `public/static/css/input.css`:
 
 - `.blueprint-grid` - Blueprint-style grid background
 - `.construction-grid` - Construction grid pattern

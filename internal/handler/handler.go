@@ -17,9 +17,9 @@ func New(emailClient *email.Client) *Handler {
 }
 
 func (h *Handler) RegisterRoutes(e *echo.Echo) {
-	// Static files - serve from public directory (existing images)
+	// Static files - serve from public directory
 	e.Static("/images", "public/images")
-	e.Static("/static", "static")
+	e.Static("/static", "public/static")
 	e.File("/favicon.ico", "public/favicon.ico")
 
 	// Health check

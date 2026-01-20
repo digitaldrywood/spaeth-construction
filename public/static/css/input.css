@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@source "../../templates/**/*.templ";
+@source "../../../templates/**/*.templ";
 
 @theme {
   /* Primary Green - Cloverbelt Brand */
