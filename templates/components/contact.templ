@@ -41,7 +41,7 @@ templ ContactSection(showSuccess bool, errorMsg string) {
 				</div>
 				// Contact form
 				<div class="lg:col-span-3">
-					<div class="bg-[#111111] border border-green-600/20 p-8 lg:p-10 xl:p-12">
+					<div class="bg-[#111111] border border-green-600/20 p-8 lg:p-10 xl:p-12 rounded-lg shadow-xl">
 						if showSuccess {
 							@ContactSuccess()
 						} else {
@@ -55,7 +55,7 @@ templ ContactSection(showSuccess bool, errorMsg string) {
 }
 
 templ ContactInfo() {
-	<div class="bg-[#111111] border border-green-600/20 p-8 lg:p-10 xl:p-12">
+	<div class="bg-[#111111] border border-green-600/20 p-8 lg:p-10 xl:p-12 rounded-lg shadow-xl">
 		<h3 class="text-2xl xl:text-3xl font-bold text-white mb-8">Contact Information</h3>
 		<div class="space-y-6 mb-10">
 			// Phone
@@ -131,7 +131,7 @@ templ ContactInfo() {
 
 templ ContactSuccess() {
 	<div class="text-center py-12">
-		<div class="w-16 h-16 bg-green-500/20 flex items-center justify-center mx-auto mb-6">
+		<div class="w-16 h-16 bg-green-500/20 flex items-center justify-center mx-auto mb-6 rounded-full">
 			<svg class="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
 			</svg>

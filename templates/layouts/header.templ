@@ -137,7 +137,7 @@ templ Header() {
 templ navLink(href, label string) {
 	<a
 		href={ templ.SafeURL(href) }
-		class="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300"
+		class="relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-600 transition-colors duration-300"
 	>
 		{ label }
 	</a>
@@ -146,7 +146,7 @@ templ navLink(href, label string) {
 templ mobileNavLink(href, label string) {
 	<a
 		href={ templ.SafeURL(href) }
-		class="block px-4 py-3 text-sm font-medium border-l-2 border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
+		class="block px-4 py-3 text-sm font-medium border-l-2 border-transparent text-gray-700 hover:text-green-600 hover:bg-gray-50 transition-all duration-200"
 	>
 		{ label }
 	</a>

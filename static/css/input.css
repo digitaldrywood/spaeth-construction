@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source "../../templates/**/*.templ";
+
 @theme {
   /* Primary Green - Cloverbelt Brand */
   --color-primary-50: #f0fdf4;

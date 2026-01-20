@@ -100,9 +100,9 @@ templ Projects() {
 }
 
 templ projectCard(p Project) {
-	<div class="group relative overflow-hidden bg-[#111111] border border-green-600/20 hover:border-green-500/40 transition-all duration-500">
+	<div class="group relative overflow-hidden bg-[#111111] border border-green-600/20 hover:border-green-500/40 transition-all duration-500 rounded-lg shadow-lg shadow-green-600/20 h-full flex flex-col">
 		// Project image
-		<div class="relative h-56 xl:h-64 overflow-hidden">
+		<div class="relative h-56 xl:h-64 overflow-hidden flex-shrink-0">
 			<img
 				src={ p.Image }
 				alt={ p.Title }
@@ -112,13 +112,13 @@ templ projectCard(p Project) {
 			<div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"></div>
 			// Category badge
 			<div class="absolute top-4 left-4">
-				<span class="px-3 py-1 bg-green-600/90 text-white text-xs font-semibold">
+				<span class="px-3 py-1 bg-green-600/90 text-white text-xs font-semibold rounded">
 					{ p.Category }
 				</span>
 			</div>
 		</div>
 		// Content
-		<div class="p-6 xl:p-8">
+		<div class="p-6 xl:p-8 flex flex-col flex-1">
 			<h3 class="font-poppins text-xl xl:text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300">
 				{ p.Title }
 			</h3>
@@ -126,9 +126,9 @@ templ projectCard(p Project) {
 				{ p.Description }
 			</p>
 			// Stats
-			<div class="flex flex-wrap gap-2">
+			<div class="flex flex-wrap gap-2 mt-auto">
 				for _, stat := range p.Stats {
-					<span class="px-3 py-1 bg-green-500/10 text-green-400 text-xs border border-green-500/20">
+					<span class="px-3 py-1 bg-green-500/10 text-green-400 text-xs border border-green-500/20 rounded">
 						{ stat }
 					</span>
 				}

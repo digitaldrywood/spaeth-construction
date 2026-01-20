@@ -85,7 +85,7 @@ templ AboutStory() {
 				</div>
 				// Image
 				<div class="relative">
-					<div class="relative aspect-[4/3] overflow-hidden">
+					<div class="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
 						<img
 							src="/images/gallery/team-planning.jpg"
 							alt="Cloverbelt Construction team"
@@ -102,7 +102,7 @@ templ AboutStory() {
 }
 
 templ aboutStat(value, label string) {
-	<div class="p-4 border border-green-600/20 bg-[#111111]">
+	<div class="p-4 border border-green-600/20 bg-[#111111] rounded-lg shadow-lg shadow-green-600/20">
 		<div class="font-poppins text-2xl font-bold text-green-400">
 			{ value }
 		</div>
@@ -139,7 +139,7 @@ templ AboutValues() {
 }
 
 templ valueCard(title, description, iconType string) {
-	<div class="group p-6 xl:p-8 bg-[#0a0a0a] border border-green-600/20 hover:border-green-500/40 transition-all duration-300 text-center">
+	<div class="group p-6 xl:p-8 bg-[#0a0a0a] border border-green-600/20 hover:border-green-500/40 transition-all duration-300 text-center rounded-lg shadow-lg shadow-green-600/20">
 		<div class="w-12 h-12 xl:w-14 xl:h-14 mx-auto flex items-center justify-center border border-green-500/30 text-green-400 mb-4 group-hover:bg-green-600 group-hover:text-white group-hover:border-green-600 transition-all duration-300">
 			@valueIcon(iconType)
 		</div>
@@ -200,7 +200,7 @@ templ AboutTimeline() {
 }
 
 templ milestoneCard(year, event, description string) {
-	<div class="group p-6 xl:p-8 bg-[#111111] border border-green-600/20 hover:border-green-500/40 transition-all duration-300">
+	<div class="group p-6 xl:p-8 bg-[#111111] border border-green-600/20 hover:border-green-500/40 transition-all duration-300 rounded-lg shadow-lg shadow-green-600/20">
 		<div class="flex items-start gap-4">
 			<div class="w-14 h-14 xl:w-16 xl:h-16 flex items-center justify-center border border-green-500/30 flex-shrink-0 group-hover:bg-green-600 group-hover:border-green-600 transition-all duration-300">
 				<span class="font-poppins text-sm xl:text-base font-bold text-green-400 group-hover:text-white transition-colors">
