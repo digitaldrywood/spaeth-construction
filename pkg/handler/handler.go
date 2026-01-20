@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"spaeth-construction/internal/email"
+	"spaeth-construction/pkg/email"
 
 	"github.com/labstack/echo/v4"
 )

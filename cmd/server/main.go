@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"time"
 
-	"spaeth-construction/internal/config"
-	"spaeth-construction/internal/email"
-	"spaeth-construction/internal/handler"
-	"spaeth-construction/internal/middleware"
+	"spaeth-construction/pkg/config"
+	"spaeth-construction/pkg/email"
+	"spaeth-construction/pkg/handler"
+	"spaeth-construction/pkg/middleware"
 
 	"github.com/labstack/echo/v4"
 )

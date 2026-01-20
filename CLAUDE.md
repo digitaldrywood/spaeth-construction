@@ -23,7 +23,7 @@ A marketing website for Cloverbelt Construction LLC, a Wisconsin-based construct
 │   ├── main.go
 │   ├── slog.go            # Structured logging setup
 │   └── generate.go        # go generate directives
-├── internal/
+├── pkg/
 │   ├── config/            # Environment configuration
 │   ├── ctxkeys/           # Context keys for request-scoped values
 │   ├── email/             # Brevo email integration
@@ -184,9 +184,9 @@ Primary green palette (Cloverbelt brand):
 
 ## Adding New Pages
 
-1. Create handler method in `internal/handler/pages.go`
+1. Create handler method in `pkg/handler/pages.go`
 2. Create template in `templates/pages/`
-3. Register route in `internal/handler/handler.go`
+3. Register route in `pkg/handler/handler.go`
 4. Update navigation in `templates/layouts/header.templ`
 
 ## Contact Form Flow

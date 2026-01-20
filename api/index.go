@@ -10,10 +10,10 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"spaeth-construction/internal/config"
-	"spaeth-construction/internal/ctxkeys"
-	"spaeth-construction/internal/email"
-	"spaeth-construction/internal/handler"
+	"spaeth-construction/pkg/config"
+	"spaeth-construction/pkg/ctxkeys"
+	"spaeth-construction/pkg/email"
+	"spaeth-construction/pkg/handler"
 )
 
 var (

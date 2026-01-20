@@ -5,8 +5,8 @@ import (
 	"log/slog"
 	"time"
 
-	"spaeth-construction/internal/config"
-	"spaeth-construction/internal/ctxkeys"
+	"spaeth-construction/pkg/config"
+	"spaeth-construction/pkg/ctxkeys"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
