@@ -46,14 +46,14 @@ spaeth-construction
 tmp/
 *.log
 
-# Generated files (can be regenerated)
-*_templ.go
+# Generated templ files - must be committed for Vercel deployment
+# *_templ.go
 
 # Environment (never commit secrets)
 .envrc
 
-# Tailwind output (generated)
-public/static/css/output.css
+# Tailwind output - must be committed for Vercel deployment
+# public/static/css/output.css
 
 # IDE
 .idea/
