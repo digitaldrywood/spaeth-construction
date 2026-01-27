@@ -287,6 +287,36 @@ body {
   transform: scale(1.08);
 }
 
+/* ===== HTMX PAGE TRANSITIONS ===== */
+
+/* Prevent flash during HTMX navigation */
+.htmx-swapping {
+  opacity: 1 !important;
+}
+
+.htmx-settling {
+  opacity: 1 !important;
+}
+
+/* View Transitions API for smooth page changes */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.15s;
+}
+
+::view-transition-old(root) {
+  animation: none;
+  opacity: 1;
+}
+
+::view-transition-new(root) {
+  animation: fadeIn 0.15s ease-out;
+}
+
 /* ===== RESPONSIVE UTILITIES ===== */
 
 @media (max-width: 768px) {

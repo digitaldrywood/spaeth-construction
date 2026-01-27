@@ -15,6 +15,8 @@ templ Base(m meta.PageMeta) {
 			<meta name="theme-color" content="#16a34a"/>
 			<link rel="icon" href="/favicon.ico" sizes="any"/>
 			<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+			// Enable View Transitions API for smooth page navigation
+			<meta name="htmx-config" content='{"globalViewTransitions":true}'/>
 			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 			// Google Fonts - Inter, Poppins, JetBrains Mono
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
